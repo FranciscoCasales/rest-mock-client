@@ -7,10 +7,9 @@ const handler = customHandler as Record<string, any>
 const customGet = async (req: Request, res: Response, endpoint: MockConfigEndpoint) => {
   try {
     console.log(`GET request received ${req.path} with query ${JSON.stringify(req.query)} and path_params: ${JSON.stringify(req.params)}`)
-    const queryString = JSON.stringify(req.query);
     if (!endpoint.customRestResponse) {
       res.status(endpoint.successfulStatusCode || 200)
-        .send(await handler[endpoint.handlerMethod](queryString, req.params));
+        .send(await handler[endpoint.handlerMethod](req.query, req.params));
     } else {
       await handler[endpoint.handlerMethod](req, res, endpoint)
     }
