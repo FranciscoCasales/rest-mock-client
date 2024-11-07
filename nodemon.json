@@ -1,0 +1,5 @@
+{
+  "execMap": {
+    "mts": "node --no-warnings=ExperimentalWarning --loader ts-node/esm src/index.mts"
+  }
+}

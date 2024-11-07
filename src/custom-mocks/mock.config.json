@@ -1,0 +1,14 @@
+{
+  "endpoints": [
+    {
+      "path": "/test",
+      "httpMethod": "post",
+      "handlerMethod": "test"
+    },
+    {
+      "path": "/test2",
+      "httpMethod": "get",
+      "handlerMethod": "test2"
+    }
+  ]
+}
