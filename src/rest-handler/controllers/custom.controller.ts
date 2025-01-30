@@ -22,6 +22,9 @@ const customGet = async (req: Request, res: Response, endpoint: MockConfigEndpoi
 const customPost = async (req: Request, res: Response, endpoint: MockConfigEndpoint) => {
   try {
     console.log(`POST request received ${req.path} with body: ${req.body}`)
+    if (endpoint.customRestResponse) {
+      return await handler[endpoint.handlerMethod](req.body, res)
+    }
     return res.status(endpoint.successfulStatusCode || 200)
       .send(await handler[endpoint.handlerMethod](req.body))
   } catch (error) {
